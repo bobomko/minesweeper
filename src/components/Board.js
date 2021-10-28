@@ -1,6 +1,25 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import createBoard from "../util/createBoard";
 
 const Board = () => {
-  return <h1>Board</h1>
+  const [grid, setGrid] = useState([]);
+
+  useEffect(()=> {
+    function freshBoard() {
+      const newBoard = createBoard(5,5,10);
+      console.log(newBoard);
+      setGrid(newBoard);
+    }
+    freshBoard();
+  }, [])
+  if (!grid.board) {
+    return <div>Loading</div>
+  }
+  return grid.board.map(singleRow => {
+    
+    return singleRow.map(singleBlock => {
+      return <div>{ singleBlock.value}</div>
+    })
+  });
 }
 export default Board;

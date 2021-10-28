@@ -37,13 +37,13 @@ export default (row, col, bombs) => {
       }
 
       //top
-      if (roww > 0 && board[roww - 1][coll].value === X) {
+      if (roww > 0 && board[roww - 1][coll].value === "X") {
         board[roww][coll].value++;
       }
 
       // top right
       if (
-        roww > 00 &&
+        roww > 0 &&
         coll < col - 1 &&
         board[roww - 1][coll + 1].value === 'X'
       ) {
